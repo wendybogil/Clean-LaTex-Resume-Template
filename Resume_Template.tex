@@ -1,0 +1,301 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=2 cm,
+    bottom=2 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{HTML}{4B9CD3} % First line color
+\definecolor{secondaryColor}{HTML}{13294B} % Second line color
+\definecolor{textColor}{RGB}{0, 0, 0} % Black text
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Kendyll King's Resume},
+    pdfauthor={Kendyll King},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor,
+    linkcolor=textColor,
+    citecolor=textColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+\usepackage{pifont}
+\newcommand{\heartbullet}{\textcolor{primaryColor}{\ding{170}}} % A cute small heart
+\newcommand{\skillrow}[1]{\vspace{0.1em}\noindent\textcolor{textColor}{#1}\par\vspace{0.2em}}
+\newcommand{\skillsep}{\textcolor{primaryColor}{~\raisebox{0.25ex}{\tiny$\bullet$}~}}
+
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lato}
+\renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+% Custom section formatting with GUARANTEED DOUBLE LINES
+\newcommand{\sectiondoubleline}[1]{%
+  \vspace{0.3cm}
+  {\needspace{0.5\baselineskip}\noindent\large\bfseries\color{textColor}#1}\par
+  \vspace{-0.55em}
+  \noindent\begin{tabular}{@{}p{\textwidth}@{}}
+  \textcolor{primaryColor}{\rule{\textwidth}{1.65pt}} \\[-1.7ex]
+  \textcolor{secondaryColor}{\rule{\textwidth}{1.65pt}}
+  \end{tabular}\par
+  \vspace{0.1cm}
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small\color{textColor}$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\let\hrefWithoutArrow\href
+
+\begin{document}
+     \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    % Header
+    \noindent\begin{minipage}{0.5\textwidth}
+        \fontsize{24 pt}{24 pt}\selectfont \textbf{First M. Last}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \raggedleft
+        \hspace{0.2em}\textcolor{primaryColor}{\faMapMarker} City Name, SA\\
+        \textcolor{primaryColor}{\faAddressCard[regular]} emailaddress@gmail.com \\ \textcolor{primaryColor}{\faPhone} (444)-444-4444
+    \end{minipage}
+
+
+\sectiondoubleline{EDUCATION \faSchool}
+
+\begin{twocolentry}{
+    Expected Month YYYY
+}
+    \textbf{\textcolor{primaryColor}{\faGraduationCap} \hspace{0.35em}Fake Name High School}, \textit{AP Capstone Diploma}
+\end{twocolentry}
+
+
+\vspace{0.15 cm}
+\begin{onecolentry}
+ \textbf{Rank:} 28/454 \textbf{$|$ Weighted GPA:} 4.91  \textbf{$|$ Unweighted GPA:} 3.93
+\end{onecolentry}
+
+\vspace{0.15 cm}
+\begin{onecolentry}
+    \textbf{Academic Interests:} Mathematics, Computer Science
+\end{onecolentry}
+
+\vspace{0.15 cm}
+\begin{onecolentry}
+\textbf{Advanced Placement Testing \faBookOpen} $|$ English Language and Composition (4)
+$|$ Seminar (4) $|$ Psychology (4)
+\end{onecolentry}
+
+
+
+\vspace{0.1 cm}
+\sectiondoubleline{LEADERSHIP \faUserTie}
+
+\begin{twocolentry}{
+    Grades 9-12
+}
+    \textbf{Fake Name High School Powerlifting Team,} \textit{Team Captain}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+\renewcommand{\labelitemi}{} 
+    \begin{highlights}
+        \item \hspace{0.5em}\textbf{\textcolor{primaryColor}{\faMedal}} Led team as captain during junior and senior years while competing all four years
+        \item \hspace{0.5em}\textbf{\textcolor{primaryColor}{\faTrophy}} Won 1st place at state championships in 10th and 11th grades
+        \item \hspace{0.5em}\textbf{\textcolor{primaryColor}{\faTrophy}} Won 2nd place at state championships in 9th grade
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.1 cm}
+\sectiondoubleline{HONORS \& RECOGNITION \faAward[regular]}
+
+\begin{tabular}{ll}
+\textbf{\faStar \hspace{0.2em} Gates Scholarship Semi-Finalist} (2025) & \textbf{\faStar \hspace{0.2em} AP Scholar with Distinction} (2025) \\
+\textbf{\faStar \hspace{0.2em} National Honor Society} (2024--present) & \textbf{\faStar \hspace{0.2em} Principal's List} (2022--2024) \\
+\textbf{\faStar \hspace{0.2em} 99th Percentile, State Testing} (2022--2024) & \textbf{\faStar \hspace{0.2em} National Technical Honor Society} (2022--present) \\
+\end{tabular}
+
+\vspace{0.1 cm}
+\sectiondoubleline{RESEARCH PROJECTS \faChartBar}
+\vspace{0.10 cm}
+\begin{twocolentry}{
+    Grade 12
+}
+    \textbf{Urban Food Deserts and Health Outcomes in Metropolitan Areas}, \textit{AP Research}
+\end{twocolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+      \item Self-taught Python data analysis and QGIS mapping to examine correlations between grocery store accessibility, obesity rates, and cardiovascular disease in Harris County, Texas
+        \item Interviewed Dr. Sarah Chen, public health researcher specializing in food policy and nutritional epidemiology
+    \end{highlights}
+\end{onecolentry}
+\begin{twocolentry}{
+    Grade 11
+}
+\vspace{0.2 cm}
+    \textbf{Social Media Algorithms and Political Polarization}, \textit{AP Seminar}
+\end{twocolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Investigated how recommendation algorithms on major platforms contribute to echo chambers using network analysis and user behavior studies across demographic groups
+        \item Evaluated proposed regulatory frameworks including algorithmic transparency laws and their potential effectiveness in reducing partisan division
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.15 cm}
+\sectiondoubleline{COMMUNITY SERVICE \& INVOLVEMENT \faHandHoldingHeart}
+
+\begin{twocolentry}{
+    Grades 10-11
+}
+    \textbf{Health Sciences Internship Program}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Interned at local elderly care facility
+        \item Gained hands on experience and learned more about health careers
+    \end{highlights}
+\end{onecolentry}
+\begin{twocolentry}{
+    Grades 11-12
+}
+    \textbf{National Honors Society}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Organized animal food drives and timed swim meets to support community initiatives
+        \item Demonstrated leadership through classroom cleaning and school support activities
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{twocolentry}{
+    Grades 10-12
+}
+    \textbf{Beta Club}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Led service projects addressing local community needs while maintaining academic excellence
+        \item Organized food drives and campus cleanups benefiting the school and surrounding area
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{twocolentry}{
+    Grades 9-12
+}
+    \textbf{Junior Civitan}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Consistently participated in volunteer events including beach cleanups and Toys for Tots
+        \item Contributed regularly to community service projects throughout high school career
+    \end{highlights}
+\end{onecolentry}
+
+
+
+
+\end{document}
