@@ -13,18 +13,12 @@ A clean, modern, and ATS-friendly LaTeX resume template designed for high-achiev
 - Easy to customize – update content, colors, or add sections directly in the `.tex` file
 
 ## Preview
-Here are example renders of the template in use:
-
-- **Original Version** (with real data for a high schooler in pharmacology/math):  
-  ![Original Resume Preview](original-preview.png)  
-  *(Upload your screenshot of Kendyll's resume as `original-preview.png`)*
+Here is an example render of the template in use:
 
 - **Templated Version** (with placeholder data):  
   ![Template Resume Preview](template-preview.png)  
-  *(Upload your screenshot of the "First M. Last" example as `template-preview.png` or link to the provided PDF)*
 
 Compiled PDF example: [ResumeTemplateExample.pdf](ResumeTemplateExample.pdf)  
-*(Add the actual PDF to your repo for download)*
 
 ## Why This Template?
 This template was built to showcase:
@@ -41,9 +35,6 @@ It's ideal for students with quantitative/research experience who want a standou
 3. Replace placeholders like "First M. Last", school names, dates, and descriptions with your own info.
 4. Compile with PDFLaTeX: `pdflatex ResumeTemplate.tex` (or use the build script if you add one).
 5. Output: A polished one-page PDF resume.
-
-**Overleaf Link**: [Edit this template on Overleaf](https://www.overleaf.com/project/new?template=https://github.com/YOUR_USERNAME/YOUR_REPO/archive/refs/heads/main.zip)  
-*(Replace with your actual repo URL once uploaded; this lets others edit online without downloading.)*
 
 ## Requirements
 - PDFLaTeX (or XeLaTeX/LuaLaTeX for advanced users)
